@@ -14,5 +14,21 @@ function removeActiveClasses() {
 }
 
 function plus1() {
-  console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+  console.log("HHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+  url = "https://192.168.0.43:8080/among";
+
+    $.get(url, callBackGetSuccess).done(function() {
+      console.log('succes');
+         })
+         .fail(function() {
+           console.log('error');
+         })
+         .always(function() {
+           //alert( "finished" );
+         });
+
+         var callBackGetSuccess = function(data) {
+    var element = document.getElementById("zone_meteo");
+    element.innerHTML = "La temperature est de " + data.main.temp;
+}
 }
